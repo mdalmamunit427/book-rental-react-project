@@ -10,6 +10,8 @@ import {
 import NewReleases from './pages/new-releases/NewReleases.jsx';
 import Home from './pages/Home.jsx';
 import TrendingBooks from './pages/trending/TrendingBooks.jsx';
+import UpcomingBooks from './pages/upcoming/UpcomingBooks.jsx';
+import FavoriteBooks from './pages/favorite/FavoriteBooks.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
       {
         path: "/trending-books",
         element: <TrendingBooks/>
+      },
+      {
+        path: "/upcoming-books",
+        element: <UpcomingBooks/>
+      },
+      {
+        path: "/favorite-books",
+        element: <FavoriteBooks/>
       }
     ]
   },

@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import { BooksContext } from '../../context';
 import BookDetailsModal from './BookDetailsModal';
 import Rating from './Rating';
+import { FaHeart } from 'react-icons/fa';
 
 const BookCard = ({ book }) => {
     const [showModal, setShowModal] = useState(false);
@@ -21,12 +22,11 @@ const BookCard = ({ book }) => {
             });
             toast.success(`Added ${book?.title} to Cart!`, {
                 position: "top-right"
-              });
+            });
         } else {
-            console.log("Added")
             toast.error(`The book ${book?.title} has already been added to the cart`, {
                 position: "top-right"
-              });
+            });
         }
     }
 
@@ -40,6 +40,15 @@ const BookCard = ({ book }) => {
         setShowModal(false);
     }
 
+    function handleBookmarkToggle(event, book) {
+        event.stopPropagation();
+
+        dispatch({
+            type: "TOGGLE_BOOKMARK",
+            payload: book,
+        });
+    }
+
     return (
         <>
             {showModal && (
@@ -50,13 +59,24 @@ const BookCard = ({ book }) => {
                 />
             )}
             <figure className="p-4 border border-black/10 shadow-sm dark:border-white/10 rounded-xl">
-                <a href="#" onClick={() => handleBookSelection(book)}>
-                    <img
-                        className="h-96 object-cover"
-                        src={book?.cover}
-                        alt={book?.title}
-                    />
-                    <figcaption className="pt-4">
+                <a href="#">
+                    <div className='relative'>
+                        <button
+                            className={`absolute top-2 right-2 p-1 ${
+                                state.bookmarkedBooks.some((b) => b.id === book.id) ? 'bg-primary' : ''
+                            }`}
+                            onClick={(e) => handleBookmarkToggle(e, book)}
+                        >
+                            <FaHeart />
+                        </button>
+                        <img
+                            className="h-96 object-cover"
+                            src={book?.cover}
+                            alt={book?.title}
+                            onClick={() => handleBookSelection(book)}
+                        />
+                    </div>
+                    <figcaption className="pt-4" onClick={() => handleBookSelection(book)}>
                         <h3 className="text-xl mb-1">{book?.title}</h3>
                         <p className="text-[#575A6E] text-sm mb-2">{book?.genre}</p>
                         <div className="flex items-center space-x-1 mb-5">

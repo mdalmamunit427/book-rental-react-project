@@ -20,5 +20,6 @@ module.exports = {
     'no-unreachable': 'off',
     'no-unused-vars': 'off',
     'react/prop-types': 'off',
+  
   },
 }

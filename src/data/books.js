@@ -47,7 +47,18 @@ const data = [
         "genre": "Action/Adventure/Sci-fi",
         "rating": 5,
         "price": 100,
-        "createdAt": "2024-05-19"
+        "createdAt": "2024-05-19",
+    },
+    {
+        "id": crypto.randomUUID(),
+        "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1634068432i/59233594.jpg",
+        "title": "The Final Gambit",
+        "description": "When Branch’s brother, Floyd, is kidnapped for his musical talents by a pair of nefarious pop-star villains, Branch and Poppy embark on a harrowing and emotional journey to reunite the other brothers and rescue Floyd from a fate even worse than pop-culture obscurity.",
+        "genre": "Action/Adventure/Sci-fi",
+        "rating": 5,
+        "price": 100,
+        "createdAt": "2024-04-19",
+        "upcoming": true
     }
 ]
 

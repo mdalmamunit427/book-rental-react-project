@@ -9,3 +9,8 @@
 .modal-text{
     color: black !important;
 }
+
+.active{
+    background-color: #00D991;
+    color: white;
+}

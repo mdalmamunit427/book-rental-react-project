@@ -1,55 +1,58 @@
 import { FaCalendarAlt, FaFire, FaFolderPlus, FaRegClock, FaRegHeart } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Sidebar() {
     return (
         <aside>
             <ul className="space-y-2">
                 <li>
-                    <Link
-                        className="flex items-center space-x-2 px-5 py-3.5 rounded-lg bg-primary text-black"
+                    <NavLink
+                        className={`flex items-center space-x-2 px-5 py-3.5 rounded-lg `}
+                        activeclassname="bg-primary text-black"
                         to="/trending-books"
                     >
                         <FaFire />
                         <span>Trending</span>
-                    </Link>
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        className="flex items-center space-x-2 px-5 py-3.5 rounded-lg"
+                        activeclassname="bg-primary text-black"
+                        to="/new-releases"
+                    >
+                        <FaFolderPlus />
+                        <span>New Releases</span>
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        className="flex items-center space-x-2 px-5 py-3.5 rounded-lg"
+                        activeclassname="bg-primary text-black"
+                        to="/upcoming-books"
+                    >
+                        <FaCalendarAlt />
+                        <span>Coming Soon</span>
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        className="flex items-center space-x-2 px-5 py-3.5 rounded-lg"
+                         to="/favorite-books"
+                         activeclassname="bg-primary text-black"
+                    >
+                       <FaRegHeart />
+                        <span>Favourites</span>
+                    </NavLink>
                 </li>
                 <li>
                     <Link
                         className="flex items-center space-x-2 px-5 py-3.5 rounded-lg"
-                        to="/new-releases"
-                    >
-                        <FaFolderPlus />
-                        
-                        <span>New Releases</span>
-                    </Link>
-                </li>
-                <li>
-                    <a
-                        className="flex items-center space-x-2 px-5 py-3.5 rounded-lg"
-                        href="#"
-                    >
-                        <FaCalendarAlt />
-                        <span>Coming Soon</span>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        className="flex items-center space-x-2 px-5 py-3.5 rounded-lg"
-                        href="#"
-                    >
-                       <FaRegHeart />
-                        <span>Favourites</span>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        className="flex items-center space-x-2 px-5 py-3.5 rounded-lg"
-                        href="#"
+                      
                     >
                        <FaRegClock />
                         <span>Watch Later</span>
-                    </a>
+                    </Link>
                 </li>
             </ul>
         </aside>
